@@ -11,9 +11,6 @@ on:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: python
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -41,5 +38,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: movers-csv
-          path: python/output/*.csv
+          path: output/*.csv
           if-no-files-found: ignore
