@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: .
+        working-directory: python
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -36,3 +36,10 @@ jobs:
           else
             python main.py ${{ github.event.inputs.date }}
           fi
+
+      - name: Upload CSV as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: movers-csv
+          path: python/output/*.csv
+          if-no-files-found: ignore
