@@ -14,6 +14,7 @@ from datetime import datetime
 from fetch_bhavcopy import fetch_bhavcopy
 from compute_movers import compute_movers
 from push_supabase import push_movers
+from export_csv import save_local_csv
 
 
 def run_for_date(target_date: datetime):
@@ -33,6 +34,7 @@ def run_for_date(target_date: datetime):
     print(f"{len(movers)} stocks moved >= 3% on {date_str}")
 
     push_movers(movers)
+    save_local_csv(movers, date_str)
 
 
 if __name__ == "__main__":
