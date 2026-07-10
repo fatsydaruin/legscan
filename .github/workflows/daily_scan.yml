@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: stock-movers-scanner/python
+        working-directory: .
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
